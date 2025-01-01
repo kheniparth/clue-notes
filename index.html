@@ -3,87 +3,76 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Clue Boardgame Notes</title>
-    <style>
-        body { font-family: Arial, sans-serif; }
-        .container { max-width: 600px; margin: auto; padding: 20px; }
-        .note { margin-bottom: 10px; }
-        .note input[type="checkbox"] { margin-right: 10px; }
-        .note label { margin-right: 10px; }
-        .note button { padding: 10px; }
-    </style>
+    <title>Clue Notes</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
-<body>
-    <div class="container">
-        <h1>Clue Boardgame Notes</h1>
-        <div class="note">
-            <h2>Characters:</h2>
-            <label><input type="checkbox" name="character" value="Mr. Boddy"> Mr. Boddy</label>
-            <label><input type="checkbox" name="character" value="Colonel Mustard"> Colonel Mustard</label>
-            <label><input type="checkbox" name="character" value="Miss Scarlett"> Miss Scarlett</label>
-            <label><input type="checkbox" name="character" value="Mrs. White"> Mrs. White</label>
-            <label><input type="checkbox" name="character" value="Mrs. Peacock"> Mrs. Peacock</label>
-            <label><input type="checkbox" name="character" value="Professor Plum"> Professor Plum</label>
-            <h2>Weapons:</h2>
-            <label><input type="checkbox" name="weapon" value="Candlestick"> Candlestick</label>
-            <label><input type="checkbox" name="weapon" value="Dagger"> Dagger</label>
-            <label><input type="checkbox" name="weapon" value="Lead Pipe"> Lead Pipe</label>
-            <label><input type="checkbox" name="weapon" value="Revolver"> Revolver</label>
-            <label><input type="checkbox" name="weapon" value="Rope"> Rope</label>
-            <label><input type="checkbox" name="weapon" value="Wrench"> Wrench</label>
-            <h2>Rooms:</h2>
-            <label><input type="checkbox" name="room" value="Ballroom"> Ballroom</label>
-            <label><input type="checkbox" name="room" value="Conservatory"> Conservatory</label>
-            <label><input type="checkbox" name="room" value="Dining Room"> Dining Room</label>
-            <label><input type="checkbox" name="room" value="Kitchen"> Kitchen</label>
-            <label><input type="checkbox" name="room" value="Library"> Library</label>
-            <label><input type="checkbox" name="room" value="Lounge"> Lounge</label>
-            <label><input type="checkbox" name="room" value="Study"> Study</label>
-            <label><input type="checkbox" name="room" value="Hall"> Hall</label>
-            <label><input type="checkbox" name="room" value="Billiard Room"> Billiard Room</label>
+<body class="bg-gray-100 p-6">
+    <div class="max-w-2xl mx-auto bg-white p-6 rounded-lg shadow-lg">
+        <h1 class="text-2xl font-bold mb-4">Clue Notes</h1>
+        
+        <h2 class="text-xl font-semibold mb-2">Rooms</h2>
+        <div class="accordion-content space-y-2">
+            <label class="block"><input type="checkbox" name="room" value="Ballroom" onchange="autoSave()" class="mr-2"> Ballroom</label>
+            <label class="block"><input type="checkbox" name="room" value="Conservatory" onchange="autoSave()" class="mr-2"> Conservatory</label>
+            <label class="block"><input type="checkbox" name="room" value="Dining Room" onchange="autoSave()" class="mr-2"> Dining Room</label>
+            <label class="block"><input type="checkbox" name="room" value="Kitchen" onchange="autoSave()" class="mr-2"> Kitchen</label>
+            <label class="block"><input type="checkbox" name="room" value="Library" onchange="autoSave()" class="mr-2"> Library</label>
+            <label class="block"><input type="checkbox" name="room" value="Lounge" onchange="autoSave()" class="mr-2"> Lounge</label>
+            <label class="block"><input type="checkbox" name="room" value="Study" onchange="autoSave()" class="mr-2"> Study</label>
+            <label class="block"><input type="checkbox" name="room" value="Hall" onchange="autoSave()" class="mr-2"> Hall</label>
+            <label class="block"><input type="checkbox" name="room" value="Billiard Room" onchange="autoSave()" class="mr-2"> Billiard Room</label>
         </div>
-        <button onclick="saveNotes()">Save Notes</button>
-        <h2>Saved Notes:</h2>
-        <div id="notesContainer"></div>
+
+        <h2 class="text-xl font-semibold mt-6 mb-2">Characters</h2>
+        <div class="accordion-content space-y-2">
+            <label class="block"><input type="checkbox" name="character" value="Miss Scarlet" onchange="autoSave()" class="mr-2"> Miss Scarlet</label>
+            <label class="block"><input type="checkbox" name="character" value="Professor Plum" onchange="autoSave()" class="mr-2"> Professor Plum</label>
+            <label class="block"><input type="checkbox" name="character" value="Mrs. Peacock" onchange="autoSave()" class="mr-2"> Mrs. Peacock</label>
+            <label class="block"><input type="checkbox" name="character" value="Mr. Green" onchange="autoSave()" class="mr-2"> Mr. Green</label>
+            <label class="block"><input type="checkbox" name="character" value="Colonel Mustard" onchange="autoSave()" class="mr-2"> Colonel Mustard</label>
+            <label class="block"><input type="checkbox" name="character" value="Mrs. White" onchange="autoSave()" class="mr-2"> Mrs. White</label>
+        </div>
+
+        <h2 class="text-xl font-semibold mt-6 mb-2">Weapons</h2>
+        <div class="accordion-content space-y-2">
+            <label class="block"><input type="checkbox" name="weapon" value="Candlestick" onchange="autoSave()" class="mr-2"> Candlestick</label>
+            <label class="block"><input type="checkbox" name="weapon" value="Dagger" onchange="autoSave()" class="mr-2"> Dagger</label>
+            <label class="block"><input type="checkbox" name="weapon" value="Lead Pipe" onchange="autoSave()" class="mr-2"> Lead Pipe</label>
+            <label class="block"><input type="checkbox" name="weapon" value="Revolver" onchange="autoSave()" class="mr-2"> Revolver</label>
+            <label class="block"><input type="checkbox" name="weapon" value="Rope" onchange="autoSave()" class="mr-2"> Rope</label>
+            <label class="block"><input type="checkbox" name="weapon" value="Wrench" onchange="autoSave()" class="mr-2"> Wrench</label>
+        </div>
+
+        <button onclick="resetInputs()" class="mt-4 bg-red-500 text-white px-4 py-2 rounded">Reset</button>
     </div>
     <script>
-        // Function to save notes to localStorage
-        function saveNotes() {
-            const characters = Array.from(document.querySelectorAll('input[name="character"]:checked')).map(input => input.value);
-            const weapons = Array.from(document.querySelectorAll('input[name="weapon"]:checked')).map(input => input.value);
-            const rooms = Array.from(document.querySelectorAll('input[name="room"]:checked')).map(input => input.value);
-            
-            const notes = {
-                characters: characters,
-                weapons: weapons,
-                rooms: rooms
-            };
-            
-            localStorage.setItem('notes', JSON.stringify(notes));
-            displayNotes();
+        // Function to auto-save notes to localStorage
+        function autoSave() {
+            const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+            const notes = {};
+            checkboxes.forEach(checkbox => {
+                notes[checkbox.value] = checkbox.checked;
+            });
+            localStorage.setItem('clueNotes', JSON.stringify(notes));
         }
 
-        // Function to display saved notes from localStorage
-        function displayNotes() {
-            const notesContainer = document.getElementById('notesContainer');
-            const notes = JSON.parse(localStorage.getItem('notes')) || {};
-            
-            notesContainer.innerHTML = '';
-            Object.keys(notes).forEach((key) => {
-                const section = document.createElement('h2');
-                section.textContent = key.charAt(0).toUpperCase() + key.slice(1);
-                notesContainer.appendChild(section);
-                
-                notes[key].forEach((note) => {
-                    const noteElement = document.createElement('div');
-                    noteElement.textContent = note;
-                    notesContainer.appendChild(noteElement);
-                });
+        // Function to reset inputs and clear localStorage
+        function resetInputs() {
+            const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+            checkboxes.forEach(checkbox => {
+                checkbox.checked = false;
+            });
+            localStorage.removeItem('clueNotes');
+        }
+
+        // Load saved notes on page load
+        window.onload = function() {
+            const notes = JSON.parse(localStorage.getItem('clueNotes')) || {};
+            const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+            checkboxes.forEach(checkbox => {
+                checkbox.checked = notes[checkbox.value] || false;
             });
         }
-
-        // Display notes on page load
-        window.onload = displayNotes;
     </script>
 </body>
 </html>
