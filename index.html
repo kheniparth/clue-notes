@@ -28,6 +28,20 @@
         .dark-mode .bg-red-500 {
             background-color: #c53030;
         }
+        .card {
+            border: 2px solid transparent;
+            border-radius: 0.5rem;
+            overflow: hidden;
+            cursor: pointer;
+            transition: border-color 0.3s;
+        }
+        .card img {
+            width: 100%;
+            height: auto;
+        }
+        .card.selected {
+            border-color: #3182ce;
+        }
     </style>
 </head>
 <body class="bg-gray-100 p-6">
@@ -51,60 +65,123 @@
             Rooms
             <svg id="roomsArrow" class="w-4 h-4 transition-transform transform rotate-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
         </h2>
-        <div id="rooms" class="accordion-content space-y-2 bg-gray-100 p-4 rounded">
-            <label class="block"><input type="checkbox" name="room" value="Ballroom" onchange="autoSave()" class="mr-2"> Ballroom</label>
-            <label class="block"><input type="checkbox" name="room" value="Conservatory" onchange="autoSave()" class="mr-2"> Conservatory</label>
-            <label class="block"><input type="checkbox" name="room" value="Dining Room" onchange="autoSave()" class="mr-2"> Dining Room</label>
-            <label class="block"><input type="checkbox" name="room" value="Kitchen" onchange="autoSave()" class="mr-2"> Kitchen</label>
-            <label class="block"><input type="checkbox" name="room" value="Library" onchange="autoSave()" class="mr-2"> Library</label>
-            <label class="block"><input type="checkbox" name="room" value="Lounge" onchange="autoSave()" class="mr-2"> Lounge</label>
-            <label class="block"><input type="checkbox" name="room" value="Study" onchange="autoSave()" class="mr-2"> Study</label>
-            <label class="block"><input type="checkbox" name="room" value="Hall" onchange="autoSave()" class="mr-2"> Hall</label>
-            <label class="block"><input type="checkbox" name="room" value="Billiard Room" onchange="autoSave()" class="mr-2"> Billiard Room</label>
+        <div id="rooms" class="accordion-content grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 bg-gray-100 p-4 rounded">
+            <div class="card" onclick="toggleCard(this, 'Ballroom')">
+                <img src="images/ballroom.jpg" alt="Ballroom">
+                <div class="text-center p-2">Ballroom</div>
+            </div>
+            <div class="card" onclick="toggleCard(this, 'Conservatory')">
+                <img src="images/conservatory.jpg" alt="Conservatory">
+                <div class="text-center p-2">Conservatory</div>
+            </div>
+            <div class="card" onclick="toggleCard(this, 'Dining Room')">
+                <img src="images/dining-room.jpg" alt="Dining Room">
+                <div class="text-center p-2">Dining Room</div>
+            </div>
+            <div class="card" onclick="toggleCard(this, 'Kitchen')">
+                <img src="images/kitchen.jpg" alt="Kitchen">
+                <div class="text-center p-2">Kitchen</div>
+            </div>
+            <div class="card" onclick="toggleCard(this, 'Library')">
+                <img src="images/library.jpg" alt="Library">
+                <div class="text-center p-2">Library</div>
+            </div>
+            <div class="card" onclick="toggleCard(this, 'Lounge')">
+                <img src="images/lounge.jpg" alt="Lounge">
+                <div class="text-center p-2">Lounge</div>
+            </div>
+            <div class="card" onclick="toggleCard(this, 'Study')">
+                <img src="images/study.jpg" alt="Study">
+                <div class="text-center p-2">Study</div>
+            </div>
+            <div class="card" onclick="toggleCard(this, 'Hall')">
+                <img src="images/hall.jpg" alt="Hall">
+                <div class="text-center p-2">Hall</div>
+            </div>
+            <div class="card" onclick="toggleCard(this, 'Billiard Room')">
+                <img src="images/billiard-room.jpg" alt="Billiard Room">
+                <div class="text-center p-2">Billiard Room</div>
+            </div>
         </div>
 
         <h2 class="text-xl font-semibold mt-6 mb-2 cursor-pointer flex justify-between items-center bg-gray-200 p-2 rounded" onclick="toggleAccordion('characters')">
             Characters
             <svg id="charactersArrow" class="w-4 h-4 transition-transform transform rotate-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
         </h2>
-        <div id="characters" class="accordion-content space-y-2 bg-gray-100 p-4 rounded">
-            <label class="block"><input type="checkbox" name="character" value="Miss Scarlet" onchange="autoSave()" class="mr-2"> Miss Scarlet</label>
-            <label class="block"><input type="checkbox" name="character" value="Professor Plum" onchange="autoSave()" class="mr-2"> Professor Plum</label>
-            <label class="block"><input type="checkbox" name="character" value="Mrs. Peacock" onchange="autoSave()" class="mr-2"> Mrs. Peacock</label>
-            <label class="block"><input type="checkbox" name="character" value="Mr. Green" onchange="autoSave()" class="mr-2"> Mr. Green</label>
-            <label class="block"><input type="checkbox" name="character" value="Colonel Mustard" onchange="autoSave()" class="mr-2"> Colonel Mustard</label>
-            <label class="block"><input type="checkbox" name="character" value="Mrs. White" onchange="autoSave()" class="mr-2"> Mrs. White</label>
+        <div id="characters" class="accordion-content grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 bg-gray-100 p-4 rounded">
+            <div class="card" onclick="toggleCard(this, 'Miss Scarlet')">
+                <img src="images/miss-scarlet.jpg" alt="Miss Scarlet">
+                <div class="text-center p-2">Miss Scarlet</div>
+            </div>
+            <div class="card" onclick="toggleCard(this, 'Professor Plum')">
+                <img src="images/professor-plum.jpg" alt="Professor Plum">
+                <div class="text-center p-2">Professor Plum</div>
+            </div>
+            <div class="card" onclick="toggleCard(this, 'Mrs. Peacock')">
+                <img src="images/mrs-peacock.jpg" alt="Mrs. Peacock">
+                <div class="text-center p-2">Mrs. Peacock</div>
+            </div>
+            <div class="card" onclick="toggleCard(this, 'Mr. Green')">
+                <img src="images/mr-green.jpg" alt="Mr. Green">
+                <div class="text-center p-2">Mr. Green</div>
+            </div>
+            <div class="card" onclick="toggleCard(this, 'Colonel Mustard')">
+                <img src="images/colonel-mustard.jpg" alt="Colonel Mustard">
+                <div class="text-center p-2">Colonel Mustard</div>
+            </div>
+            <div class="card" onclick="toggleCard(this, 'Mrs. White')">
+                <img src="images/mrs-white.jpg" alt="Mrs. White">
+                <div class="text-center p-2">Mrs. White</div>
+            </div>
         </div>
 
         <h2 class="text-xl font-semibold mt-6 mb-2 cursor-pointer flex justify-between items-center bg-gray-200 p-2 rounded" onclick="toggleAccordion('weapons')">
             Weapons
             <svg id="weaponsArrow" class="w-4 h-4 transition-transform transform rotate-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
         </h2>
-        <div id="weapons" class="accordion-content space-y-2 bg-gray-100 p-4 rounded">
-            <label class="block"><input type="checkbox" name="weapon" value="Candlestick" onchange="autoSave()" class="mr-2"> Candlestick</label>
-            <label class="block"><input type="checkbox" name="weapon" value="Dagger" onchange="autoSave()" class="mr-2"> Dagger</label>
-            <label class="block"><input type="checkbox" name="weapon" value="Lead Pipe" onchange="autoSave()" class="mr-2"> Lead Pipe</label>
-            <label class="block"><input type="checkbox" name="weapon" value="Revolver" onchange="autoSave()" class="mr-2"> Revolver</label>
-            <label class="block"><input type="checkbox" name="weapon" value="Rope" onchange="autoSave()" class="mr-2"> Rope</label>
-            <label class="block"><input type="checkbox" name="weapon" value="Wrench" onchange="autoSave()" class="mr-2"> Wrench</label>
+        <div id="weapons" class="accordion-content grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 bg-gray-100 p-4 rounded">
+            <div class="card" onclick="toggleCard(this, 'Candlestick')">
+                <img src="images/candlestick.jpg" alt="Candlestick">
+                <div class="text-center p-2">Candlestick</div>
+            </div>
+            <div class="card" onclick="toggleCard(this, 'Dagger')">
+                <img src="images/knife.jpg" alt="Dagger">
+                <div class="text-center p-2">Dagger</div>
+            </div>
+            <div class="card" onclick="toggleCard(this, 'Lead Pipe')">
+                <img src="images/lead-pipe.jpg" alt="Lead Pipe">
+                <div class="text-center p-2">Lead Pipe</div>
+            </div>
+            <div class="card" onclick="toggleCard(this, 'Revolver')">
+                <img src="images/revolver.jpg" alt="Revolver">
+                <div class="text-center p-2">Revolver</div>
+            </div>
+            <div class="card" onclick="toggleCard(this, 'Rope')">
+                <img src="images/rope.jpg" alt="Rope">
+                <div class="text-center p-2">Rope</div>
+            </div>
+            <div class="card" onclick="toggleCard(this, 'Wrench')">
+                <img src="images/wrench.jpg" alt="Wrench">
+                <div class="text-center p-2">Wrench</div>
+            </div>
         </div>
     </div>
     <script>
         // Function to auto-save notes to localStorage
         function autoSave() {
-            const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+            const cards = document.querySelectorAll('.card');
             const notes = {};
-            checkboxes.forEach(checkbox => {
-                notes[checkbox.value] = checkbox.checked;
+            cards.forEach(card => {
+                notes[card.getAttribute('data-value')] = card.classList.contains('selected');
             });
             localStorage.setItem('clueNotes', JSON.stringify(notes));
         }
 
         // Function to reset inputs and clear localStorage
         function resetInputs() {
-            const checkboxes = document.querySelectorAll('input[type="checkbox"]');
-            checkboxes.forEach(checkbox => {
-                checkbox.checked = false;
+            const cards = document.querySelectorAll('.card');
+            cards.forEach(card => {
+                card.classList.remove('selected');
             });
             localStorage.removeItem('clueNotes');
         }
@@ -112,9 +189,11 @@
         // Load saved notes on page load
         window.onload = function() {
             const notes = JSON.parse(localStorage.getItem('clueNotes')) || {};
-            const checkboxes = document.querySelectorAll('input[type="checkbox"]');
-            checkboxes.forEach(checkbox => {
-                checkbox.checked = notes[checkbox.value] || false;
+            const cards = document.querySelectorAll('.card');
+            cards.forEach(card => {
+                if (notes[card.getAttribute('data-value')]) {
+                    card.classList.add('selected');
+                }
             });
         }
 
@@ -129,6 +208,13 @@
                 content.style.display = "none";
                 arrow.classList.remove('rotate-180');
             }
+        }
+
+        // Function to toggle card selection
+        function toggleCard(card, value) {
+            card.classList.toggle('selected');
+            card.setAttribute('data-value', value);
+            autoSave();
         }
 
         // Function to toggle theme
