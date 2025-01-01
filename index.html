@@ -33,14 +33,16 @@
             border-radius: 0.5rem;
             overflow: hidden;
             cursor: pointer;
-            transition: border-color 0.3s;
+            transition: border-color 0.3s, background-color 0.3s;
         }
         .card img {
-            width: 100%;
+            width: 20%;
             height: auto;
+            transition: width 0.3s;
         }
         .card.selected {
-            border-color: #3182ce;
+            background-color: #3182ce;
+            color: #e2e8f0;
         }
     </style>
 </head>
