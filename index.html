@@ -47,8 +47,11 @@
             <button onclick="resetInputs()" class="bg-red-500 text-white px-4 py-2 rounded">Reset</button>
         </header>
         
-        <h2 class="text-xl font-semibold mb-2 cursor-pointer" onclick="toggleAccordion('rooms')">Rooms</h2>
-        <div id="rooms" class="accordion-content space-y-2">
+        <h2 class="text-xl font-semibold mb-2 cursor-pointer flex justify-between items-center bg-gray-200 p-2 rounded" onclick="toggleAccordion('rooms')">
+            Rooms
+            <svg id="roomsArrow" class="w-4 h-4 transition-transform transform rotate-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+        </h2>
+        <div id="rooms" class="accordion-content space-y-2 bg-gray-100 p-4 rounded">
             <label class="block"><input type="checkbox" name="room" value="Ballroom" onchange="autoSave()" class="mr-2"> Ballroom</label>
             <label class="block"><input type="checkbox" name="room" value="Conservatory" onchange="autoSave()" class="mr-2"> Conservatory</label>
             <label class="block"><input type="checkbox" name="room" value="Dining Room" onchange="autoSave()" class="mr-2"> Dining Room</label>
@@ -60,8 +63,11 @@
             <label class="block"><input type="checkbox" name="room" value="Billiard Room" onchange="autoSave()" class="mr-2"> Billiard Room</label>
         </div>
 
-        <h2 class="text-xl font-semibold mt-6 mb-2 cursor-pointer" onclick="toggleAccordion('characters')">Characters</h2>
-        <div id="characters" class="accordion-content space-y-2">
+        <h2 class="text-xl font-semibold mt-6 mb-2 cursor-pointer flex justify-between items-center bg-gray-200 p-2 rounded" onclick="toggleAccordion('characters')">
+            Characters
+            <svg id="charactersArrow" class="w-4 h-4 transition-transform transform rotate-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+        </h2>
+        <div id="characters" class="accordion-content space-y-2 bg-gray-100 p-4 rounded">
             <label class="block"><input type="checkbox" name="character" value="Miss Scarlet" onchange="autoSave()" class="mr-2"> Miss Scarlet</label>
             <label class="block"><input type="checkbox" name="character" value="Professor Plum" onchange="autoSave()" class="mr-2"> Professor Plum</label>
             <label class="block"><input type="checkbox" name="character" value="Mrs. Peacock" onchange="autoSave()" class="mr-2"> Mrs. Peacock</label>
@@ -70,8 +76,11 @@
             <label class="block"><input type="checkbox" name="character" value="Mrs. White" onchange="autoSave()" class="mr-2"> Mrs. White</label>
         </div>
 
-        <h2 class="text-xl font-semibold mt-6 mb-2 cursor-pointer" onclick="toggleAccordion('weapons')">Weapons</h2>
-        <div id="weapons" class="accordion-content space-y-2">
+        <h2 class="text-xl font-semibold mt-6 mb-2 cursor-pointer flex justify-between items-center bg-gray-200 p-2 rounded" onclick="toggleAccordion('weapons')">
+            Weapons
+            <svg id="weaponsArrow" class="w-4 h-4 transition-transform transform rotate-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+        </h2>
+        <div id="weapons" class="accordion-content space-y-2 bg-gray-100 p-4 rounded">
             <label class="block"><input type="checkbox" name="weapon" value="Candlestick" onchange="autoSave()" class="mr-2"> Candlestick</label>
             <label class="block"><input type="checkbox" name="weapon" value="Dagger" onchange="autoSave()" class="mr-2"> Dagger</label>
             <label class="block"><input type="checkbox" name="weapon" value="Lead Pipe" onchange="autoSave()" class="mr-2"> Lead Pipe</label>
@@ -112,10 +121,13 @@
         // Function to toggle accordion content
         function toggleAccordion(id) {
             const content = document.getElementById(id);
+            const arrow = document.getElementById(id + 'Arrow');
             if (content.style.display === "none" || content.style.display === "") {
                 content.style.display = "block";
+                arrow.classList.add('rotate-180');
             } else {
                 content.style.display = "none";
+                arrow.classList.remove('rotate-180');
             }
         }
 
