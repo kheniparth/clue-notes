@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clue Boardgame Notes</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        .container { max-width: 600px; margin: auto; padding: 20px; }
+        .note { margin-bottom: 10px; }
+        .note input[type="checkbox"] { margin-right: 10px; }
+        .note label { margin-right: 10px; }
+        .note button { padding: 10px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Clue Boardgame Notes</h1>
+        <div class="note">
+            <h2>Characters:</h2>
+            <label><input type="checkbox" name="character" value="Mr. Boddy"> Mr. Boddy</label>
+            <label><input type="checkbox" name="character" value="Colonel Mustard"> Colonel Mustard</label>
+            <label><input type="checkbox" name="character" value="Miss Scarlett"> Miss Scarlett</label>
+            <label><input type="checkbox" name="character" value="Mrs. White"> Mrs. White</label>
+            <label><input type="checkbox" name="character" value="Mrs. Peacock"> Mrs. Peacock</label>
+            <label><input type="checkbox" name="character" value="Professor Plum"> Professor Plum</label>
+            <h2>Weapons:</h2>
+            <label><input type="checkbox" name="weapon" value="Candlestick"> Candlestick</label>
+            <label><input type="checkbox" name="weapon" value="Dagger"> Dagger</label>
+            <label><input type="checkbox" name="weapon" value="Lead Pipe"> Lead Pipe</label>
+            <label><input type="checkbox" name="weapon" value="Revolver"> Revolver</label>
+            <label><input type="checkbox" name="weapon" value="Rope"> Rope</label>
+            <label><input type="checkbox" name="weapon" value="Wrench"> Wrench</label>
+            <h2>Rooms:</h2>
+            <label><input type="checkbox" name="room" value="Ballroom"> Ballroom</label>
+            <label><input type="checkbox" name="room" value="Conservatory"> Conservatory</label>
+            <label><input type="checkbox" name="room" value="Dining Room"> Dining Room</label>
+            <label><input type="checkbox" name="room" value="Kitchen"> Kitchen</label>
+            <label><input type="checkbox" name="room" value="Library"> Library</label>
+            <label><input type="checkbox" name="room" value="Lounge"> Lounge</label>
+            <label><input type="checkbox" name="room" value="Study"> Study</label>
+            <label><input type="checkbox" name="room" value="Hall"> Hall</label>
+            <label><input type="checkbox" name="room" value="Billiard Room"> Billiard Room</label>
+        </div>
+        <button onclick="saveNotes()">Save Notes</button>
+        <h2>Saved Notes:</h2>
+        <div id="notesContainer"></div>
+    </div>
+    <script>
+        // Function to save notes to localStorage
+        function saveNotes() {
+            const characters = Array.from(document.querySelectorAll('input[name="character"]:checked')).map(input => input.value);
+            const weapons = Array.from(document.querySelectorAll('input[name="weapon"]:checked')).map(input => input.value);
+            const rooms = Array.from(document.querySelectorAll('input[name="room"]:checked')).map(input => input.value);
+            
+            const notes = {
+                characters: characters,
+                weapons: weapons,
+                rooms: rooms
+            };
+            
+            localStorage.setItem('notes', JSON.stringify(notes));
+            displayNotes();
+        }
+
+        // Function to display saved notes from localStorage
+        function displayNotes() {
+            const notesContainer = document.getElementById('notesContainer');
+            const notes = JSON.parse(localStorage.getItem('notes')) || {};
+            
+            notesContainer.innerHTML = '';
+            Object.keys(notes).forEach((key) => {
+                const section = document.createElement('h2');
+                section.textContent = key.charAt(0).toUpperCase() + key.slice(1);
+                notesContainer.appendChild(section);
+                
+                notes[key].forEach((note) => {
+                    const noteElement = document.createElement('div');
+                    noteElement.textContent = note;
+                    notesContainer.appendChild(noteElement);
+                });
+            });
+        }
+
+        // Display notes on page load
+        window.onload = displayNotes;
+    </script>
+</body>
+</html>
