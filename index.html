@@ -37,22 +37,11 @@
         }
 
         .card {
-            border: 2px solid transparent;
-            border-radius: 0.5rem;
-            overflow: hidden;
             cursor: pointer;
-            transition: border-color 0.3s, background-color 0.3s;
-        }
-
-        .card img {
-            width: 20%;
-            height: auto;
-            transition: width 0.3s;
         }
 
         .card.selected {
             background-color: #3182ce;
-            color: #e2e8f0;
         }
     </style>
 </head>
@@ -96,49 +85,68 @@
             class="accordion-content grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 bg-gray-100 p-4 rounded">
 
 
-            <div class="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"
+            <div class="w-full max-w-40 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 card"
                 onclick="toggleCard(this, 'Ballroom')">
-                <img class="p-8 rounded-t-lg" src="assets/images/rooms/ballroom.jpg" alt="Ballroom" />
-                <div class="px-5 pb-5">
+                <img class="rounded-t-lg" src="assets/images/rooms/ballroom.jpg" alt="Ballroom" />
+                <div class="p-2 text-center">
                     <h5 class="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">Ballroom</h5>
                 </div>
             </div>
-
-            <div class="card" onclick="toggleCard(this, 'Ballroom')">
-                <img src="assets/images/rooms/ballroom.jpg" alt="Ballroom">
-                <div class="text-center p-2">Ballroom</div>
+            <div class="w-full max-w-40 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 card"
+                onclick="toggleCard(this, 'Conservatory')">
+                <img class="rounded-t-lg" src="assets/images/rooms/conservatory.jpg" alt="Conservatory" />
+                <div class="p-2 text-center">
+                    <h5 class="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">Conservatory</h5>
+                </div>
             </div>
-            <div class="card" onclick="toggleCard(this, 'Conservatory')">
-                <img src="assets/images/rooms/conservatory.jpg" alt="Conservatory">
-                <div class="text-center p-2">Conservatory</div>
+            <div class="w-full max-w-40 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 card"
+                onclick="toggleCard(this, 'Kitchen')">
+                <img class="rounded-t-lg" src="assets/images/rooms/kitchen.jpg" alt="Kitchen" />
+                <div class="p-2 text-center">
+                    <h5 class="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">Kitchen</h5>
+                </div>
             </div>
-            <div class="card" onclick="toggleCard(this, 'Dining Room')">
-                <img src="assets/images/rooms/dining-room.jpg" alt="Dining Room">
-                <div class="text-center p-2">Dining Room</div>
+            <div class="w-full max-w-40 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 card"
+                onclick="toggleCard(this, 'Dining Room')">
+                <img class="rounded-t-lg" src="assets/images/rooms/dining-room.jpg" alt="Dining Room" />
+                <div class="p-2 text-center">
+                    <h5 class="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">Dining Room</h5>
+                </div>
             </div>
-            <div class="card" onclick="toggleCard(this, 'Kitchen')">
-                <img src="assets/images/rooms/kitchen.jpg" alt="Kitchen">
-                <div class="text-center p-2">Kitchen</div>
+            <div class="w-full max-w-40 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 card"
+                onclick="toggleCard(this, 'Lounge')">
+                <img class="rounded-t-lg" src="assets/images/rooms/lounge.jpg" alt="Lounge" />
+                <div class="p-2 text-center">
+                    <h5 class="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">Lounge</h5>
+                </div>
             </div>
-            <div class="card" onclick="toggleCard(this, 'Library')">
-                <img src="assets/images/rooms/library.jpg" alt="Library">
-                <div class="text-center p-2">Library</div>
+            <div class="w-full max-w-40 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 card"
+                onclick="toggleCard(this, 'Hall')">
+                <img class="rounded-t-lg" src="assets/images/rooms/hall.jpg" alt="Hall" />
+                <div class="p-2 text-center">
+                    <h5 class="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">Hall</h5>
+                </div>
             </div>
-            <div class="card" onclick="toggleCard(this, 'Lounge')">
-                <img src="assets/images/rooms/lounge.jpg" alt="Lounge">
-                <div class="text-center p-2">Lounge</div>
+            <div class="w-full max-w-40 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 card"
+                onclick="toggleCard(this, 'Study')">
+                <img class="rounded-t-lg" src="assets/images/rooms/study.jpg" alt="Study" />
+                <div class="p-2 text-center">
+                    <h5 class="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">Study</h5>
+                </div>
             </div>
-            <div class="card" onclick="toggleCard(this, 'Study')">
-                <img src="assets/images/rooms/study.jpg" alt="Study">
-                <div class="text-center p-2">Study</div>
+            <div class="w-full max-w-40 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 card"
+                onclick="toggleCard(this, 'Library')">
+                <img class="rounded-t-lg" src="assets/images/rooms/library.jpg" alt="Library" />
+                <div class="p-2 text-center">
+                    <h5 class="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">Library</h5>
+                </div>
             </div>
-            <div class="card" onclick="toggleCard(this, 'Hall')">
-                <img src="assets/images/rooms/hall.jpg" alt="Hall">
-                <div class="text-center p-2">Hall</div>
-            </div>
-            <div class="card" onclick="toggleCard(this, 'Billiard Room')">
-                <img src="assets/images/rooms/billiard-room.jpg" alt="Billiard Room">
-                <div class="text-center p-2">Billiard Room</div>
+            <div class="w-full max-w-40 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 card"
+                onclick="toggleCard(this, 'Billiard Room')">
+                <img class="rounded-t-lg" src="assets/images/rooms/billiard-room.jpg" alt="Billiard Room" />
+                <div class="p-2 text-center">
+                    <h5 class="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">Billiard Room</h5>
+                </div>
             </div>
         </div>
 
@@ -152,29 +160,48 @@
         </h2>
         <div id="characters"
             class="accordion-content grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 bg-gray-100 p-4 rounded">
-            <div class="card" onclick="toggleCard(this, 'Miss Scarlet')">
-                <img src="assets/images/characters/miss-scarlet.jpg" alt="Miss Scarlet">
-                <div class="text-center p-2">Miss Scarlet</div>
+
+            <div class="w-full max-w-40 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 card"
+                onclick="toggleCard(this, 'Miss Scarlet')">
+                <img class="rounded-t-lg" src="assets/images/characters/miss-scarlet.jpg" alt="Miss Scarlet" />
+                <div class="p-2 text-center">
+                    <h5 class="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">Miss Scarlet</h5>
+                </div>
             </div>
-            <div class="card" onclick="toggleCard(this, 'Professor Plum')">
-                <img src="assets/images/characters/professor-plum.jpg" alt="Professor Plum">
-                <div class="text-center p-2">Professor Plum</div>
+            <div class="w-full max-w-40 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 card"
+                onclick="toggleCard(this, 'Professor Plum')">
+                <img class="rounded-t-lg" src="assets/images/characters/professor-plum.jpg" alt="Professor Plum" />
+                <div class="p-2 text-center">
+                    <h5 class="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">Professor Plum</h5>
+                </div>
             </div>
-            <div class="card" onclick="toggleCard(this, 'Mrs. Peacock')">
-                <img src="assets/images/characters/mrs-peacock.jpg" alt="Mrs. Peacock">
-                <div class="text-center p-2">Mrs. Peacock</div>
+            <div class="w-full max-w-40 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 card"
+                onclick="toggleCard(this, 'Mrs. Peacock')">
+                <img class="rounded-t-lg" src="assets/images/characters/mrs-peacock.jpg" alt="Mrs. Peacock" />
+                <div class="p-2 text-center">
+                    <h5 class="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">Mrs. Peacock</h5>
+                </div>
             </div>
-            <div class="card" onclick="toggleCard(this, 'Mr. Green')">
-                <img src="assets/images/characters/mr-green.jpg" alt="Mr. Green">
-                <div class="text-center p-2">Mr. Green</div>
+            <div class="w-full max-w-40 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 card"
+                onclick="toggleCard(this, 'Mr. Green')">
+                <img class="rounded-t-lg" src="assets/images/characters/mr-green.jpg" alt="Mr. Green" />
+                <div class="p-2 text-center">
+                    <h5 class="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">Mr. Green</h5>
+                </div>
             </div>
-            <div class="card" onclick="toggleCard(this, 'Colonel Mustard')">
-                <img src="assets/images/characters/colonel-mustard.jpg" alt="Colonel Mustard">
-                <div class="text-center p-2">Colonel Mustard</div>
+            <div class="w-full max-w-40 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 card"
+                onclick="toggleCard(this, 'Colonel Mustard')">
+                <img class="rounded-t-lg" src="assets/images/characters/colonel-mustard.jpg" alt="Colonel Mustard" />
+                <div class="p-2 text-center">
+                    <h5 class="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">Colonel Mustard</h5>
+                </div>
             </div>
-            <div class="card" onclick="toggleCard(this, 'Mrs. White')">
-                <img src="assets/images/characters/mrs-white.jpg" alt="Mrs. White">
-                <div class="text-center p-2">Mrs. White</div>
+            <div class="w-full max-w-40 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 card"
+                onclick="toggleCard(this, 'Mrs. White')">
+                <img class="rounded-t-lg" src="assets/images/characters/mrs-white.jpg" alt="Mrs. White" />
+                <div class="p-2 text-center">
+                    <h5 class="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">Mrs. White</h5>
+                </div>
             </div>
         </div>
 
@@ -188,29 +215,47 @@
         </h2>
         <div id="weapons"
             class="accordion-content grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 bg-gray-100 p-4 rounded">
-            <div class="card" onclick="toggleCard(this, 'Candlestick')">
-                <img src="assets/images/weapons/candlestick.jpg" alt="Candlestick">
-                <div class="text-center p-2">Candlestick</div>
+            <div class="w-full max-w-40 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 card"
+                onclick="toggleCard(this, 'Candlestick')">
+                <img class="rounded-t-lg" src="assets/images/weapons/candlestick.jpg" alt="Candlestick" />
+                <div class="p-2 text-center">
+                    <h5 class="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">Candlestick</h5>
+                </div>
             </div>
-            <div class="card" onclick="toggleCard(this, 'Dagger')">
-                <img src="assets/images/weapons/knife.jpg" alt="Dagger">
-                <div class="text-center p-2">Dagger</div>
+            <div class="w-full max-w-40 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 card"
+                onclick="toggleCard(this, 'Dagger')">
+                <img class="rounded-t-lg" src="assets/images/weapons/knife.jpg" alt="Dagger" />
+                <div class="p-2 text-center">
+                    <h5 class="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">Dagger</h5>
+                </div>
             </div>
-            <div class="card" onclick="toggleCard(this, 'Lead Pipe')">
-                <img src="assets/images/weapons/lead-pipe.jpg" alt="Lead Pipe">
-                <div class="text-center p-2">Lead Pipe</div>
+            <div class="w-full max-w-40 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 card"
+                onclick="toggleCard(this, 'Lead Pipe')">
+                <img class="rounded-t-lg" src="assets/images/weapons/lead-pipe.jpg" alt="Lead Pipe" />
+                <div class="p-2 text-center">
+                    <h5 class="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">Lead Pipe</h5>
+                </div>
             </div>
-            <div class="card" onclick="toggleCard(this, 'Revolver')">
-                <img src="assets/images/weapons/revolver.jpg" alt="Revolver">
-                <div class="text-center p-2">Revolver</div>
+            <div class="w-full max-w-40 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 card"
+                onclick="toggleCard(this, 'Revolver')">
+                <img class="rounded-t-lg" src="assets/images/weapons/revolver.jpg" alt="Revolver" />
+                <div class="p-2 text-center">
+                    <h5 class="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">Revolver</h5>
+                </div>
             </div>
-            <div class="card" onclick="toggleCard(this, 'Rope')">
-                <img src="assets/images/weapons/rope.jpg" alt="Rope">
-                <div class="text-center p-2">Rope</div>
+            <div class="w-full max-w-40 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 card"
+                onclick="toggleCard(this, 'Rope')">
+                <img class="rounded-t-lg" src="assets/images/weapons/rope.jpg" alt="Rope" />
+                <div class="p-2 text-center">
+                    <h5 class="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">Rope</h5>
+                </div>
             </div>
-            <div class="card" onclick="toggleCard(this, 'Wrench')">
-                <img src="assets/images/weapons/wrench.jpg" alt="Wrench">
-                <div class="text-center p-2">Wrench</div>
+            <div class="w-full max-w-40 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 card"
+                onclick="toggleCard(this, 'Wrench')">
+                <img class="rounded-t-lg" src="assets/images/weapons/wrench.jpg" alt="Wrench" />
+                <div class="p-2 text-center">
+                    <h5 class="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">Wrench</h5>
+                </div>
             </div>
         </div>
     </div>
